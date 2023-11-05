@@ -1,0 +1,154 @@
+@use '../abstracts/' as a;
+
+.header {
+    position: fixed;
+    z-index: 99;
+    width: 100%; 
+  
+    // Hamburger Open Styles
+    &.open {
+  
+      .header__toggle {
+        > span:first-child {
+          transform: rotate(45deg);
+          background-color: darkBlue;
+        }
+        
+        > span:nth-child(2) {
+          opacity: 0;
+          background-color: darkblue;
+        }
+        
+        > span:last-child {
+          transform: rotate(-45deg);
+          background-color: darkblue;
+        }
+      }
+    }
+  
+    .overlay {
+      opacity: 0;
+      position: fixed;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      background-image: linear-gradient(#fff, transparent);
+    }
+  
+    nav {
+      position: relative;
+      background-color: a.$grayDark;
+      padding-top: 1.0625rem;
+      padding-bottom: 1.0625rem;
+    }
+  
+    &__logo {
+  
+      img {
+        width: 10.8rem;
+        max-height: 100%;
+        left: 3rem;
+        position: relative;
+        top: 0.5rem;
+      }
+  
+    }
+  
+    &__toggle { // Mobile Menu Toggle
+  
+      > span {
+        display: block;
+        width: 26px;
+        height: 2px;
+        background-color: a.$darkBlue;
+        transition: all 300ms ease-in-out;
+        transform-origin: 3px 1px;
+        position: relative;
+        left: -20px;
+  
+        &:not(:last-child){
+          margin-bottom: 5px;
+        }
+      }
+    }
+  
+    &__menu {
+      position: absolute;
+      width: calc(100% - 3rem);
+      left: 50%;
+      transform: translateX(-50%);
+      background: lightgray;
+      margin-top: 1.5rem;
+      padding: 1.625rem;
+      border-radius: 5px;
+  
+      a {
+        display: block;
+        padding: 0.625rem;
+        color: a.$darkBlue;
+        text-align: center;
+        text-decoration: none;
+      }
+    }
+  
+    &__links {
+  
+      a {
+        position: relative;
+        font-size: large;
+        color: a.$semiWhite;
+        transition: color 300ms ease-in-out;
+        right: 5rem;
+        text-decoration: none;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+  
+        &:not(:last-child){
+          margin-right: 32px;
+        }
+  
+        &::before {
+          content: "";
+          display: block;
+          position: absolute;
+          height: 5px;
+          left: 0;
+          right: 0;
+          bottom: -30px;
+          background: linear-gradient(to right, blue, rgb(0, 200, 255));
+          opacity: 0;
+          transition: opacity 300ms ease-in-out;
+        }
+        &:hover {
+          color: a.$semiWhite;
+  
+          &::before {
+            opacity: 1;
+          }
+        }
+      }
+    }
+}
+
+// Visibility 
+
+.header__toggle, .header__menu {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .header__toggle, .header__menu {
+    display: block;
+    position: relative;
+  }
+  .header__links {
+    display: none;
+  }
+  .header {
+    position: relative;
+    z-index: 9;
+    max-height: 30%;
+    margin-bottom: -13rem;
+}
+}
