@@ -39,7 +39,7 @@
     cursor: pointer;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 35px) {
 
     #mobile-tablet-view {
         display: none;
@@ -49,7 +49,7 @@
         display: block;
         max-width: 1200px;
         border: solid 5px a.$darkBlue;
-        border-radius: 3px solid;
+        border-radius: 3px;
     }
     
     #imageCon {
