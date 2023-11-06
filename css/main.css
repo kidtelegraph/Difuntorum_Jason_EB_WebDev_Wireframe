@@ -236,7 +236,7 @@ model-viewer > #ar-prompt > img {
   display: block;
   width: 26px;
   height: 2px;
-  background-color: hsl(233, 26%, 24%);
+  background-color: #F1F6F9;
   transition: all 300ms ease-in-out;
   transform-origin: 3px 1px;
   position: relative;
